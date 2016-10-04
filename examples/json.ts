@@ -1,7 +1,7 @@
 import {
   Parser,charP, stringP, many, noneOf,
   many1, digit
-} from "../src/jsparse";
+} from "../index";
 
 let whiteSpace = Parser.many1(Parser.oneOf("\n\t "));
 let optionalWhiteSpace = Parser.many(Parser.oneOf("\n\t "));
