@@ -1,4 +1,4 @@
-export {Parser, ParseState, ParseError, ParseResult};
+export {ParseState, ParseError, ParseResult};
 
 interface ParseResult<T> {
   error?: string,
@@ -47,19 +47,19 @@ class Either<A, B> {
   }
 }
 
-function Left<A, B>(value: A): Either<A, B>{
+export function Left<A, B>(value: A): Either<A, B>{
   return new Either<A, B>(value, null);
 }
 
-function Right<A, B>(value: B): Either<A, B>{
+export function Right<A, B>(value: B): Either<A, B>{
   return new Either<A, B>(null, value);
 }
 
-class Pair<A, B> {
+export class Pair<A, B> {
   constructor(public first: A, public second: B){}
 }
 
-type ParseFunction<A> = {
+export type ParseFunction<A> = {
   (ParseState): Either<ParseError, Pair<A, ParseState>>
 }
 
@@ -67,7 +67,7 @@ type ParseFunction<A> = {
  * Represents a parser that can be applied to a string and
  * yields a value of type A
  */
-class Parser<A> {
+export class Parser<A> {
   constructor(public parseFunc: ParseFunction<A>){}
   
   /**

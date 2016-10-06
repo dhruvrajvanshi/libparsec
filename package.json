@@ -1,6 +1,6 @@
 {
   "name": "libparsec",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "A monadic parser combinator library.",
   "main": "build/index.js",
   "directories": {
@@ -14,7 +14,7 @@
     "type": "git",
     "url": "git+https://github.com/dhruvrajvanshi/libparsec.git"
   },
-  "author": "",
+  "author": "Dhruv Rajvanshi",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/dhruvrajvanshi/libparsec/issues"
