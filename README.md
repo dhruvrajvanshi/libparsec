@@ -1,13 +1,13 @@
-JSParse
+Libparsec
 =======
-JSParse is a parsing library inspired by the Haskell
+Libparsec is a parsing library inspired by the Haskell
 library Parsec. You can make parsers by combining and
 composing smaller parsers.
 
 ## Simple parsers
 Simple strings
 ```js
-import {stringP} from "jsparse";
+import {stringP} from "libparsec";
 console.log(stringP("hello").parse("hello"));
 // => Either { _isRight: true, right: 'hello' }
 ```
@@ -24,7 +24,7 @@ console.log(stringP("hello").parse("xyz").left)
 ```
 
 ```js
-import {oneOf, noneOf} from "jsparse";
+import {oneOf, noneOf} from "libparsec";
 // Parsing one of many characters
 console.log(oneOf("abcd").parse("b").right) // => b
 
@@ -41,7 +41,7 @@ Function many1 does the same thing except it requires atleast 1
 instance to succeed.
 ```js
 // multiple instances
-import {many} from "jsparse";
+import {many} from "libparsec";
 many(stringP("ab")).parse("").right // => []
 many(stringP("ab")).parse("ab").right // => ["ab"]
 many(stringP("ab")).parse("abab").right // => ["ab", "ab"]
@@ -52,7 +52,7 @@ stringP("ab").sepBy(stringP(","))
   .parse("ab,ab").right // => [ 'ab', 'ab' ]
 ```
 ```js
-import {Parser} from "jsparse";
+import {Parser} from "libparsec";
 // Parser that returns a value without consuming any input
 Parser.unit("asdf").parse("pqrs").right // => "asdf"
 ```
@@ -87,7 +87,7 @@ on it.
 .map method transforms the result of a parse using the given
 function
 ```js
-import {digit} from "jsparse";
+import {digit} from "libparsec";
 numberP = many1(noneOf(digit));
 numberP.parse("234").right // => "234"
 numberP.map(parseInt)
